@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'com.gradle.plugin-publish'
+
+version = "0.1.1-SNAPSHOT"
+group = "org.schoormann.android.gradle.astyle"
+
+buildscript {
+	repositories {
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath "com.gradle.publish:plugin-publish-plugin:0.9.2"
+	}
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi()
+}
+
+pluginBundle {
+  website = 'https://github.com/tschoormann/gradle-android-astyle'
+  vcsUrl = 'https://github.com/tschoormann/gradle-android-astyle.git'
+  description = 'Gradle plugin for astyle support in android application and library modules.'
+  tags = ['android', 'astyle']
+
+  plugins {
+    greetingsPlugin {
+      id = 'org.schoormann.android.gradle.astyle'
+      displayName = 'gradle-android-astlye'
+    }
+  }
+}
